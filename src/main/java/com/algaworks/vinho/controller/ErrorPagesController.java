@@ -1,4 +1,4 @@
-package com.algaworks.projeto.controller;
+package com.algaworks.vinho.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
