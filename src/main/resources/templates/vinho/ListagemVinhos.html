@@ -2,7 +2,7 @@
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/LayoutPadrao}">
+	layout:decorate="layout/LayoutPadrao.html">
 	
 <head>
 	<title>AlgaWorks</title>
@@ -52,6 +52,9 @@
 						<td th:text="${vinho.safra}">2013</td>
 						<td th:text="${vinho.volume}">750ml</td>
 						<td th:text="${vinho.valor}">R$55,00</td>
+					</tr>
+					<tr th:if="${vinhos.empty}">
+						<td colspan="6">Nenhum vinho cadastrado</td>
 					</tr>
 				</tbody>
 			</table>
