@@ -1,6 +1,9 @@
 package com.algaworks.vinho.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 
@@ -12,15 +15,22 @@ public class Vinho {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
+    // @Column(nullable = false)
+    //@NotBlank(message = "error.nome.notnull")
+    @NotNull(message = "{erro.nome.notnull}")
     private String nome;
 
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "{erro.tipo.notnull}")
     private TipoVinho tipo;
 
+    @NotNull(message = "{erro.safra.notnull}")
     private Integer safra;
 
+    @NotNull(message = "{erro.volume.notnull}")
     private Integer volume;
 
+    @NotNull(message = "{erro.valor.notnull}")
     private BigDecimal valor;
 
     @Override
