@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/vinhos")
@@ -50,6 +52,14 @@ public class VinhosController {
 		cadastroVinhoService.salvar(vinho);
 		attributes.addFlashAttribute("mensagem", "Vinho salvo com sucesso!");
 		return new ModelAndView("redirect:/vinhos/novo");
+	}
+
+	@RequestMapping("/{codigo}")
+	public ModelAndView visualizar(@PathVariable Long codigo) {
+		ModelAndView mv = new ModelAndView("/vinho/VisualizacaoVinho.html");
+		Optional<Vinho> vinhoOptional = vinhos.findById(codigo);
+		mv.addObject("vinho", vinhoOptional.get());
+		return mv;
 	}
 	
 }
