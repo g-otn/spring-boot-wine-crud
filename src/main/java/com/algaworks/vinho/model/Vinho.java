@@ -16,8 +16,8 @@ public class Vinho {
     private Long codigo;
 
     // @Column(nullable = false)
-    //@NotBlank(message = "error.nome.notnull")
-    @NotNull(message = "{erro.nome.notnull}")
+    @NotBlank(message = "{erro.nome.notnull}")
+    //@NotNull(message = "{erro.nome.notnull}")
     private String nome;
 
     @Enumerated(EnumType.STRING)
