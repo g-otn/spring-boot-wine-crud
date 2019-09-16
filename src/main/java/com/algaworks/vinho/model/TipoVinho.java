@@ -4,7 +4,7 @@ public enum TipoVinho {
 
     TINTO("Tinto"),
     BRANCO("Branco"),
-    ROSE("Ros�");
+    ROSE("Rosé");
 
     private String descricao;
 
