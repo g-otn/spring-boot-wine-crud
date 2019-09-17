@@ -33,6 +33,9 @@ public class Vinho {
     @NotNull(message = "{erro.valor.notnull}")
     private BigDecimal valor;
 
+    private String foto;
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,5 +95,13 @@ public class Vinho {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }

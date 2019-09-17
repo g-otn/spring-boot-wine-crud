@@ -1,0 +1,1 @@
+ALTER TABLE vinho ADD foto varchar(100);
