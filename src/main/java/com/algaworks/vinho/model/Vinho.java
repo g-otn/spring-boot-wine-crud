@@ -35,6 +35,10 @@ public class Vinho {
 
     private String foto;
 
+    @Transient
+    private String url;
+
+    // ---
 
     @Override
     public boolean equals(Object o) {
@@ -103,5 +107,17 @@ public class Vinho {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public boolean temFoto() {
+        return foto != null && !foto.isEmpty();
     }
 }

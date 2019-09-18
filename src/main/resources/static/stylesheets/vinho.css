@@ -30,3 +30,8 @@
     cursor: pointer;
     font-size: 500px;
 }
+
+.js-container-foto > img {
+    max-height: 60vh;
+    margin: auto;
+}

@@ -22,8 +22,9 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-9">
-                <div id="upload-drop" class="wn-upload" th:attr="data-codigo=${vinho.codigo}">
+            <div class="col-sm-9  js-container-foto">
+                <img th:src="${vinho.url}" th:if="${vinho.temFoto()}" class="img-responsive">
+                <div id="upload-drop" class="wn-upload" th:if="${not vinho.temFoto()}" th:attr="data-codigo=${vinho.codigo}">
                     <img th:src="@{/images/garrafa_vazia.png}">
                     <div>
                         <span>Arraste a foto aqui ou</span>
@@ -31,7 +32,7 @@
                     </div>
                 </div>
                 <div id="progressbar" class="uk-progress uk-hidden">
-                    <div class="uk-progress-bar" style="width: 0; background-color: dodgerblue">...</div>
+                    <div class="uk-progress-bar" style="width: 0%;">...</div>
                 </div>
             </div>
 

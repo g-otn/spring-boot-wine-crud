@@ -1,12 +1,16 @@
 $(() => {
+
+    if (!document.querySelector("#upload-drop")) return
+
     var progressbar = $("#progressbar"),
         bar = progressbar.find('.uk-progress-bar'),
+        containerFoto = $('.js-container-foto'),
         settings = {
             type: 'json',
 
             filelimit: 1,
 
-            action: '/fotos/' + document.querySelector('#upload-drop').getAttribute('data-codigo'), // upload url
+            action: '/fotos/' + document.querySelector("#upload-drop").getAttribute('data-codigo'), // upload url
 
             allow: '*.(jpg|jpeg|png)', // allow only images
 
@@ -17,18 +21,12 @@ $(() => {
 
             progress: function (percent) {
                 percent = Math.ceil(percent)
-                bar.css("width", percent + "%").text(percent + "%")
+                bar.css("width", percent+"%").text(percent+"%");
             },
 
             complete: function (foto) {
-
-                bar.css("width", "100%").text("100%")
-
-                setTimeout(function () {
-                    progressbar.addClass("uk-hidden")
-                }, 250)
-
-                console.log("Upload completo! Foto:", foto.nome)
+                containerFoto.prepend('<img src="' + foto.url + '">')
+                $("#upload-drop").addClass('hidden')
             }
         }
 

@@ -57,8 +57,15 @@ public class VinhosController {
 	@RequestMapping("/{codigo}")
 	public ModelAndView visualizar(@PathVariable Long codigo) {
 		ModelAndView mv = new ModelAndView("/vinho/VisualizacaoVinho.html");
+
 		Optional<Vinho> vinhoOptional = vinhos.findById(codigo);
-		mv.addObject("vinho", vinhoOptional.get());
+		Vinho vinho = vinhoOptional.get();
+
+		if (vinho.temFoto()) {
+			vinho.setUrl("http://localhost:9444/s3/vinho/" + vinho.getFoto() + "?noAuth=true");
+		}
+
+		mv.addObject("vinho", vinho);
 		return mv;
 	}
 	
