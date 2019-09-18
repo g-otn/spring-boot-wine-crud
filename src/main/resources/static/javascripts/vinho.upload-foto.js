@@ -14,6 +14,12 @@ $(() => {
 
             allow: '*.(jpg|jpeg|png)', // allow only images
 
+            beforeSend: (xhr) => {
+                let header = $('input[name=_csrf_header]').val()
+                let token = $('input[name=_csrf]').val()
+                xhr.setRequestHeader(header, token)
+            },
+
             loadstart: function () {
                 bar.css("width", "0%").text("0%")
                 progressbar.removeClass("uk-hidden")
@@ -21,7 +27,7 @@ $(() => {
 
             progress: function (percent) {
                 percent = Math.ceil(percent)
-                bar.css("width", percent+"%").text(percent+"%");
+                bar.css("width", percent + "%").text(percent + "%");
             },
 
             complete: function (foto) {
