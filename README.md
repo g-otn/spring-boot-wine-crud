@@ -1,5 +1,5 @@
 # spring-boot-wine-crud
-A wine crud made using Spring Boot. This is the project for the [AlgaWorks](https://www.algaworks.com/)'s Spring Boot course.
+A wine crud made using Spring Boot. This my project for the [AlgaWorks](https://www.algaworks.com/)'s Spring Boot course.
 
 ## Features
 - Create, read and update of wine
@@ -35,7 +35,7 @@ protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 7. Download [s3Ninja](https://s3ninja.net/) (project developed with s3Ninja [version 2.7](https://oss.sonatype.org/content/groups/public/com/scireum/s3ninja/2.7/)).
 8. Start s3Ninja by navigating to its folder and running the `IPL.class` file: `java IPL`.
 9. (Likely to not be needed) In the project, go to the `src/main/java/com/algaworks/vinho/config/AmazonConfig.java` and change
-the credentials to match the one specified by s3Ninja (displayed at `localhost:9444`).
+the credentials to match the one specified by s3Ninja (displayed at http://localhost:9444).
 ```java
 // ...
     AWSCredentials credentials = new BasicAWSCredentials("ACCESS KEY HERE", "SECRET KEY HERE");
